@@ -1,0 +1,53 @@
+@tailwind base;
+@tailwind components;
+@tailwind utilities;
+
+:root {
+  --color-gold: #C9A84C;
+  --color-dark: #3C3F4A;
+  --color-mid: #9A9A9A;
+  --color-light: #F5F5F3;
+  --color-white: #FFFFFF;
+}
+
+@layer base {
+  * {
+    box-sizing: border-box;
+  }
+
+  html {
+    scroll-behavior: smooth;
+  }
+
+  body {
+    background-color: var(--color-white);
+    color: var(--color-dark);
+    font-family: var(--font-inter), Inter, system-ui, sans-serif;
+    -webkit-font-smoothing: antialiased;
+    -moz-osx-font-smoothing: grayscale;
+  }
+
+  h1, h2, h3, h4, h5, h6 {
+    color: var(--color-dark);
+    letter-spacing: 0.05em;
+  }
+}
+
+@layer components {
+  .section-label {
+    @apply text-xs font-semibold uppercase tracking-[0.2em] text-mid;
+  }
+
+  .gold-divider {
+    @apply border-t border-gold;
+  }
+
+  .prose-datasight {
+    @apply prose prose-lg max-w-none;
+    @apply prose-headings:text-dark prose-headings:font-semibold prose-headings:tracking-wide prose-headings:uppercase;
+    @apply prose-p:text-dark/80 prose-p:leading-relaxed;
+    @apply prose-a:text-gold prose-a:no-underline hover:prose-a:underline;
+    @apply prose-strong:text-dark;
+    @apply prose-li:text-dark/80;
+  }
+}

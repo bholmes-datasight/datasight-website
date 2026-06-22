@@ -1,0 +1,47 @@
+---
+title: University Analytics Platform
+client: University of Manchester
+sector: Higher Education
+summary: Built a real-time analytics platform processing 500,000+ student interaction events daily, replacing a manual reporting process that took two days per cycle.
+metrics:
+  - value: "500K+"
+    label: Daily events processed
+  - value: "40%"
+    label: Faster reporting
+  - value: "12"
+    label: Departments onboarded
+tags: [Python, FastAPI, Plotly, PostgreSQL, Pandas]
+date: 2024-03-01
+featured: true
+---
+
+## The Challenge
+
+The university's data team was producing weekly engagement reports for 12 academic departments — each requiring manual data extraction from three separate systems, reconciliation in Excel, and a two-day turnaround from data pull to delivery.
+
+As student numbers grew and leadership asked for more granular, real-time insight, the existing process couldn't scale.
+
+## Our Approach
+
+We started with a two-week discovery phase: mapping every data source, understanding how each department consumed the reports, and identifying which metrics actually drove decisions versus which were produced out of habit.
+
+The output was a clear specification for a streaming analytics pipeline with a department-facing dashboard layer.
+
+### Technical Architecture
+
+We built a Python-native stack that the university's in-house team could own and extend:
+
+- **Ingestion layer:** FastAPI service consuming events from the university's LMS, VLE, and library systems
+- **Processing:** Pandas and Polars pipelines running on a scheduled job executor
+- **Storage:** PostgreSQL with a denormalised reporting schema optimised for the dashboard queries
+- **Visualisation:** Plotly Dash application with role-based access (department heads see only their data)
+
+### Delivery
+
+The platform was built in eight weeks across three phases: data pipeline, dashboard MVP, and stakeholder training. We ran weekly review sessions with the data team throughout to ensure the implementation matched operational reality.
+
+## Results
+
+The platform replaced the two-day manual process with a live dashboard updated every four hours. Department heads can now self-serve their own reports, slice by cohort, and export data directly — without a request to the central data team.
+
+The university has since expanded the platform to cover three additional faculties not in the original scope.
